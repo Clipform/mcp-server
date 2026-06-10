@@ -1,4 +1,5 @@
-﻿# @clipform/mcp-server
+<!-- GENERATED from README.template.md by scripts/sync-mcp-server-readme.mjs - do not edit directly. -->
+# @clipform/mcp-server
 
 MCP server for [Clipform](https://clipform.io) - build and manage video-style forms from any MCP client (Claude, ChatGPT, Cursor, Windsurf, etc.).
 
@@ -10,9 +11,9 @@ There are two ways to connect: **remote** (recommended, uses your Clipform accou
 
 Use this if you have a Clipform account. Forms are created directly in your workspace and your plan tier applies (no 3-node cap on Pro).
 
-**Claude (claude.ai):** Settings â†’ Connectors â†’ Add custom connector â†’ enter `https://mcp.clipform.io`
+**Claude (claude.ai):** Settings → Connectors → Add custom connector → enter `https://mcp.clipform.io`
 
-**ChatGPT:** Settings â†’ Connectors â†’ Advanced â†’ enable Developer Mode â†’ Create connector â†’ enter `https://mcp.clipform.io` (requires Pro/Team/Enterprise)
+**ChatGPT:** Settings → Connectors → Advanced → enable Developer Mode → Create connector → enter `https://mcp.clipform.io` (requires Pro/Team/Enterprise)
 
 **Any MCP client with OAuth:** Point it at `https://mcp.clipform.io` - discovery, registration, and auth are handled automatically via OAuth 2.1 + Dynamic Client Registration (RFC 7591).
 
@@ -58,42 +59,36 @@ You can also pass the key as a CLI flag: `npx -y @clipform/mcp-server --api-key=
 
 ## Tools
 
-### Form & node management
+Your MCP client lists these automatically on connect (via `tools/list`). Full reference - arguments, schemas, and examples - is in the [docs](https://clipform.io/docs/guides/mcp).
 
 | Tool | Description |
 |------|-------------|
-| `clipform_create_form` | Create a new form with nodes, theming, and tags in one call. Returns the created node IDs (structured output) so media steps need no follow-up lookup |
-| `clipform_list_forms` | List forms in your workspace with filtering and pagination |
-| `clipform_get_form` | View a form and all its nodes |
-| `clipform_update_form` | Change title, publish status, or settings |
-| `clipform_delete_form` | Delete a form and its nodes (asks the user to confirm) |
-| `clipform_add_node` | Add a node to an existing form |
-| `clipform_update_node` | Update node text, type, config, or options |
-| `clipform_delete_node` | Remove a node (logic chain auto-relinks; asks the user to confirm) |
-
-### Media & logic
-
-| Tool | Description |
-|------|-------------|
-| `clipform_upload_node_media` | Attach video or image to one or more nodes (batch, max 10); set `fit_media: true` for generated renders |
-| `clipform_get_node_media` | View a node's media details |
-| `clipform_delete_node_media` | Remove media from a node (asks the user to confirm) |
-| `clipform_attach_audio` | Attach audio to a still-image node |
-
-### Creative
-
-| Tool | Description |
-|------|-------------|
-| `clipform_render_composition` | Render a video composition to MP4 or PNG - flag reveals, emoji puzzles, grids, timelines, map motion and more. Pass `wait: false` to fire renders in parallel and poll for results |
-| `clipform_generate_tts` | Generate narration audio with word-level captions |
-| `clipform_generate_slideshow` | Create slideshow videos from images + audio (waits, returns URL) |
-| `clipform_generate_video` | Generate video from images, clips, or both synced to audio. Supports a looping background-audio bed (crowd noise, ambience) and print-style texture overlays. Pass `wait: false` to fire renders in parallel and poll for results |
-| `clipform_check_render` | Check status of a render started with `wait: false` |
-| `clipform_search_media` | Search royalty-free images and videos, with orientation filter and alt-text descriptions |
-| `clipform_search_music` | Search royalty-free music and ambient sounds |
-| `clipform_list_compositions` | List available video compositions and prop schemas |
-| `clipform_list_assets` | List available sound effects, animations, and fonts |
-| `clipform_fetch_boundary` | Fetch a GeoJSON boundary polygon for a country, city, or region |
+| `clipform_create_form` | Create a new Clipform (interactive video-style form). |
+| `clipform_list_forms` | List forms in your workspace with optional filtering. |
+| `clipform_get_form` | Retrieve a form's details including all nodes in sequential order. |
+| `clipform_update_form` | Update a form's title, publish status, settings, or tags. |
+| `clipform_delete_form` | Permanently delete a form and all its nodes. |
+| `clipform_add_node` | Add a new node to an existing form. |
+| `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
+| `clipform_delete_node` | Delete a node from a form. |
+| `clipform_upload_node_media` | Upload media for one or more nodes. |
+| `clipform_get_node_media` | Get the media attached to a node, including processing status. |
+| `clipform_delete_node_media` | Remove media from a node. |
+| `clipform_set_logic` | Set routing logic on one or more nodes. |
+| `clipform_log_generation` | Save an audit trail for a generated form. |
+| `clipform_search_news` | Fallback news lookup for clients without native web search. |
+| `clipform_youtube_transcript` | Extract the transcript, title, and channel info from a YouTube video. |
+| `clipform_generate_tts` | Generate narration audio from text with word-level captions. |
+| `clipform_generate_video` | Generate a video from images, video clips, or both, synced to an audio track. |
+| `clipform_search_media` | Search images or stock video clips. |
+| `clipform_render_composition` | Render a specialised video composition to MP4 or PNG - custom animated visuals that clipform_generate_video can't provide, such as geography animations or designed motion graphics. |
+| `clipform_search_music` | Search for royalty-free music tracks and ambient sounds. |
+| `clipform_list_compositions` | Browse available video compositions and their expected props schemas. |
+| `clipform_list_assets` | List available creative assets (sound effects, animations, fonts) for video compositions. |
+| `clipform_check_render` | Check the status of a render job started by clipform_generate_video or clipform_render_composition. |
+| `clipform_fetch_boundary` | Fetch a GeoJSON boundary polygon for a country, city, or region. |
+| `clipform_get_guide` | Retrieve craft knowledge for building a specific form type. |
+| `clipform_get_workflow` | Retrieve a step-by-step build workflow for creating a specific form type. |
 
 ## Example
 
@@ -112,6 +107,6 @@ Forms are created with a start node and end screen automatically - you just add 
 ## Links
 
 - [Clipform](https://clipform.io) - Create interactive video forms
-- [Documentation](https://clipform.io/docs/guides/mcp) - Full guide with node types, scoring, and more
+- [Documentation](https://clipform.io/docs/guides/mcp) - Full guide with node types and more
 
 > Craft guides (`clipform://guides/*`, `clipform_get_guide`) are fetched from the Clipform API at runtime, so the server needs a reachable `API_URL` and valid `CLIPFORM_API_KEY` to serve them.
