@@ -59,7 +59,7 @@ You can also pass the key as a CLI flag: `npx -y @clipform/mcp-server --api-key=
 
 ## Tools
 
-Your MCP client lists these automatically on connect (via `tools/list`). Full reference - arguments, schemas, and examples - is in the [docs](https://clipform.io/docs/guides/mcp).
+Your MCP client lists these automatically on connect (via `tools/list`). Full reference - arguments, schemas, and examples - is in the [docs](https://clipform.io/docs/api/mcp).
 
 | Tool | Description |
 |------|-------------|
@@ -85,7 +85,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_search_music` | Search for royalty-free music tracks and ambient sounds. |
 | `clipform_list_compositions` | Browse available video compositions and their expected props schemas. |
 | `clipform_list_assets` | List available creative assets (sound effects, animations, fonts) for video compositions. |
-| `clipform_check_render` | Check the status of a render job started by clipform_generate_video or clipform_render_composition. |
+| `clipform_check_render` | Check the status of render jobs started by clipform_generate_video or clipform_render_composition. |
 | `clipform_fetch_boundary` | Fetch a GeoJSON boundary polygon for a country, city, or region. |
 | `clipform_get_guide` | Retrieve craft knowledge for building a specific form type. |
 | `clipform_get_workflow` | Retrieve a step-by-step build workflow for creating a specific form type. |
@@ -107,6 +107,6 @@ Forms are created with a start node and end screen automatically - you just add 
 ## Links
 
 - [Clipform](https://clipform.io) - Create interactive video forms
-- [Documentation](https://clipform.io/docs/guides/mcp) - Full guide with node types and more
+- [Documentation](https://clipform.io/docs/api/mcp) - Full guide with node types and more
 
 > Craft guides (`clipform://guides/*`, `clipform_get_guide`) are fetched from the Clipform API at runtime, so the server needs a reachable `API_URL` and valid `CLIPFORM_API_KEY` to serve them.
