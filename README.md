@@ -71,7 +71,8 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_add_node` | Add a new node to an existing form. |
 | `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
 | `clipform_delete_node` | Delete a node from a form. |
-| `clipform_upload_node_media` | Upload media for one or more nodes. |
+| `clipform_upload_media_asset` | Put one or more media files into your workspace media library (max 10, uploaded sequentially). |
+| `clipform_attach_node_media` | Attach an existing workspace media asset (from clipform_upload_media_asset) to one or more nodes (max 10). |
 | `clipform_get_node_media` | Get the media attached to a node, including processing status. |
 | `clipform_delete_node_media` | Remove media from a node. |
 | `clipform_set_logic` | Set routing logic on one or more nodes. |
@@ -84,8 +85,10 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_render_composition` | Render a specialised video composition to MP4 or PNG - custom animated visuals that clipform_generate_video can't provide, such as geography animations or designed motion graphics. |
 | `clipform_search_music` | Search for royalty-free music tracks and ambient sounds. |
 | `clipform_list_compositions` | Browse available video compositions and their expected props schemas. |
+| `clipform_list_video_templates` | Browse available video templates - curated Scene arrangements (bed + overlay + sane defaults) that render through the Scene composition from a small controls object. |
+| `clipform_render_video_template` | Render a curated video template (a pre-arranged Scene: bed + overlay + sane defaults) to MP4 or PNG from a small controls object, instead of hand-assembling Scene layers. |
 | `clipform_list_assets` | List available creative assets (sound effects, animations, fonts) for video compositions. |
-| `clipform_check_render` | Check the status of render jobs started by clipform_generate_video or clipform_render_composition. |
+| `clipform_check_render` | Check the status of render jobs started by clipform_generate_video, clipform_render_video_template, or clipform_render_composition. |
 | `clipform_fetch_boundary` | Fetch a GeoJSON boundary polygon for a country, city, or region. |
 | `clipform_get_guide` | Retrieve craft knowledge for building a specific form type. |
 | `clipform_get_workflow` | Retrieve a step-by-step build workflow for creating a specific form type. |
