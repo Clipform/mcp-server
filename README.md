@@ -72,6 +72,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
 | `clipform_delete_node` | Delete a node from a form. |
 | `clipform_upload_media_asset` | Put one or more media files into your workspace media library (max 10, uploaded sequentially). |
+| `clipform_complete_media_upload` | Confirm a signed-PUT still image upload finished, after PUTting the bytes to the upload_url returned by clipform_upload_media_asset. |
 | `clipform_attach_node_media` | Attach an existing workspace media asset (from clipform_upload_media_asset) to one or more nodes (max 10). |
 | `clipform_get_node_media` | Get the media attached to a node, including processing status. |
 | `clipform_delete_node_media` | Remove media from a node. |
