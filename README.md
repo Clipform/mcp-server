@@ -67,7 +67,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_list_forms` | List forms in your workspace with optional filtering. |
 | `clipform_get_form` | Retrieve a form's details including all nodes in sequential order. |
 | `clipform_update_form` | Update a form's title, publish status, settings, or tags. |
-| `clipform_delete_form` | Permanently delete a form and all its nodes. |
+| `clipform_delete_form` | Move a form and all its nodes to the trash. |
 | `clipform_add_node` | Add a new node to an existing form. |
 | `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
 | `clipform_delete_node` | Delete a node from a form. |
