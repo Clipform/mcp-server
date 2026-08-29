@@ -65,9 +65,11 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 |------|-------------|
 | `clipform_create_form` | Create a new Clipform (interactive video-style form). |
 | `clipform_list_forms` | List forms in your workspace with optional filtering. |
-| `clipform_get_form` | Retrieve a form's details including all nodes in sequential order. |
+| `clipform_whoami` | Show the current identity: auth mode (api key, session, or anonymous), active workspace, and plan limits. |
+| `clipform_get_form` | Retrieve a form's details including all nodes in sequential order and their routing. |
 | `clipform_update_form` | Update a form's title, publish status, settings, or tags. |
 | `clipform_delete_form` | Move a form and all its nodes to the trash. |
+| `clipform_get_results` | View response counts, choice/action answer breakdowns, and recent open-text answers for a form. |
 | `clipform_add_node` | Add a new node to an existing form. |
 | `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
 | `clipform_delete_node` | Delete a node from a form. |
@@ -76,10 +78,9 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_attach_node_media` | Attach an existing workspace media asset (from clipform_upload_media_asset) to one or more nodes (max 10). |
 | `clipform_get_node_media` | Get the media attached to a node, including processing status. |
 | `clipform_delete_node_media` | Remove media from a node. |
-| `clipform_set_logic` | Set routing logic on one or more nodes. |
-| `clipform_log_generation` | Save an audit trail for a generated form. |
+| `clipform_set_logic` | Set the next node for one or more nodes, wiring a linear route (A to B to C). |
+| `clipform_log_generation` | Internal audit step run by a form-generation workflow. |
 | `clipform_search_news` | Fallback news lookup for clients without native web search. |
-| `clipform_youtube_transcript` | Extract the transcript, title, and channel info from a YouTube video. |
 | `clipform_generate_tts` | Generate narration audio from text with word-level captions. |
 | `clipform_generate_video` | Generate a video from images, video clips, or both, synced to an audio track. |
 | `clipform_search_media` | Search images or stock video clips. |
