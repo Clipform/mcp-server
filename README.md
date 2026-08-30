@@ -64,6 +64,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | Tool | Description |
 |------|-------------|
 | `clipform_create_form` | Create a new Clipform (interactive video-style form). |
+| `clipform_import_form` | Convert a public Google Form, Typeform, or Tally form into a new Clipform. |
 | `clipform_list_forms` | List forms in your workspace with optional filtering. |
 | `clipform_whoami` | Show the current identity: auth mode (api key, session, or anonymous), active workspace, and plan limits. |
 | `clipform_get_form` | Retrieve a form's details including all nodes in sequential order and their routing. |
