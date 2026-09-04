@@ -71,6 +71,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_update_form` | Update a form's title, publish status, settings, or tags. |
 | `clipform_delete_form` | Move a form and all its nodes to the trash. |
 | `clipform_get_results` | View response counts, choice/action answer breakdowns, and recent open-text answers for a form. |
+| `clipform_get_responses` | List a Clipform form's individual responses (submissions) with time filtering - complements clipform_get_results (aggregates). |
 | `clipform_add_node` | Add a new node to an existing form. |
 | `clipform_update_node` | Update one or more existing nodes' text, type, config, or options. |
 | `clipform_delete_node` | Delete a node from a form. |

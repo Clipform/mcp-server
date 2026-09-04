@@ -3,7 +3,7 @@
   "name": "io.github.Clipform/mcp-server",
   "title": "Clipform",
   "description": "Interactive video forms that capture authentic responses. Build engaging forms in minutes.",
-  "version": "2.6.0",
+  "version": "2.10.2",
   "websiteUrl": "https://www.clipform.io",
   "icons": [
     {
@@ -23,7 +23,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@clipform/mcp-server",
-      "version": "2.6.0",
+      "version": "2.10.2",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"
