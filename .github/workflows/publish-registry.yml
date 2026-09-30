@@ -23,8 +23,8 @@ jobs:
       - name: Publish
         run: |
           VERSION="$(node -p "require('./server.json').version")"
-          if curl -s 'https://registry.modelcontextprotocol.io/v0/servers?search=io.github.Clipform/mcp-server' \
-              | grep -q "\"version\":\"${VERSION}\""; then
+          # Exact-version lookup - the search endpoint is paginated (30/page).
+          if curl -fsS -o /dev/null "https://registry.modelcontextprotocol.io/v0/servers/io.github.Clipform%2Fmcp-server/versions/${VERSION}"; then
             echo "registry already has ${VERSION} - skipping"
             exit 0
           fi
