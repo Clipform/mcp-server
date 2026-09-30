@@ -1,0 +1,48 @@
+# Synced from the monorepo (packages/mcp-server/mirror) by scripts/sync-mcp-public.mjs.
+# Publishes server.json to the MCP registry via GitHub OIDC. This must run in
+# THIS repo (Clipform/mcp-server) so OIDC grants io.github.Clipform/*.
+name: Publish to MCP registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - server.json
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish
+        run: |
+          VERSION="$(node -p "require('./server.json').version")"
+          if curl -s 'https://registry.modelcontextprotocol.io/v0/servers?search=io.github.Clipform/mcp-server' \
+              | grep -q "\"version\":\"${VERSION}\""; then
+            echo "registry already has ${VERSION} - skipping"
+            exit 0
+          fi
+          # The registry validates the npm package at this version, so wait for it.
+          for i in $(seq 1 30); do
+            if npm view "@clipform/mcp-server@${VERSION}" version >/dev/null 2>&1; then
+              FOUND=1
+              break
+            fi
+            echo "waiting for npm @clipform/mcp-server@${VERSION} (${i}/30)"
+            sleep 10
+          done
+          if [ -z "${FOUND:-}" ]; then
+            echo "npm never listed ${VERSION}" >&2
+            exit 1
+          fi
+          curl -fsSL -o mcp-publisher.tar.gz \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.7.9/mcp-publisher_linux_amd64.tar.gz
+          tar -xzf mcp-publisher.tar.gz mcp-publisher
+          ./mcp-publisher login github-oidc
+          ./mcp-publisher publish server.json
