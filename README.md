@@ -82,7 +82,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_delete_node_media` | Remove media from a node. |
 | `clipform_set_logic` | Set the next node for one or more nodes, wiring a linear route (A to B to C). |
 | `clipform_log_generation` | Internal audit step run by a form-generation workflow. |
-| `clipform_search_news` | Fallback news lookup for clients without native web search. |
+| `clipform_search_news` | Search recent news articles from NewsAPI and The Guardian and return them as structured results. |
 | `clipform_generate_tts` | Generate narration audio from text with word-level captions. |
 | `clipform_search_media` | Search images or stock video clips. |
 | `clipform_render_composition` | Render a specialised video composition to MP4 or PNG - custom animated visuals that a video template can't provide, such as geography animations or designed motion graphics. |
@@ -102,7 +102,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 
 ## How it works
 
-**Remote (OAuth):** Bearer tokens are audience-bound to `https://mcp.clipform.io` (RFC 8707) and scoped to `mcp` only. Forms land directly in the workspace you approved during consent.
+**Remote (OAuth):** Bearer tokens are audience-bound to `https://mcp.clipform.io` (RFC 8707) and scoped to `mcp` only. Forms land directly in the workspace you approved during consent by default. One connection reaches every workspace you belong to in the same company: pass `workspace_id` (ids from `clipform_whoami`) on `clipform_create_form`, `clipform_import_form`, `clipform_list_forms`, `clipform_upload_media_asset`, or `clipform_generate_tts`, or a `form_id` from another workspace on any form tool - including `clipform_upload_media_asset`, `clipform_generate_tts`, and `clipform_complete_media_upload`, where it's a routing hint only (the result still lands in that workspace's media library, not on a node). Membership is re-checked on every call, and results name the workspace.
 
 **Local with API key:** The `CLIPFORM_API_KEY` is sent as a standard `Authorization: Bearer` header. Forms are created directly in the key's workspace with your plan tier limits.
 
