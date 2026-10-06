@@ -44,17 +44,13 @@ claude mcp add clipform -e CLIPFORM_API_KEY=cf_xxx -- npx -y @clipform/mcp-serve
 }
 ```
 
-Self-service API key generation is coming soon. For now, your API key is provided during onboarding or via your account settings - contact support if you need one.
-
-You can also pass the key as a CLI flag: `npx -y @clipform/mcp-server --api-key=cf_xxx`
-
-**Anonymous mode** (no API key): Forms go into a shared workspace with the free-tier 3-node limit. You'll get a claim URL to move forms into your account.
+Generate an API key in your Clipform dashboard under **Developers > API keys**. The local server always needs one - to try Clipform without an account, connect to `https://mcp.clipform.io` instead (see "How it works").
 
 ### Environment variables
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `CLIPFORM_API_KEY` | For workspace auth | Bearer key - forms land in the key's workspace with its plan limits. Also unlocks the creative tools (search, TTS, video rendering). Omit for anonymous mode. |
+| `CLIPFORM_API_KEY` | For workspace auth | Bearer key - forms land in the key's workspace with its plan limits. Also unlocks the creative tools (search, TTS, video rendering). Required by the local server. |
 | `API_URL` | Yes | Clipform API base URL (`https://api.clipform.io`, or your local/self-hosted API). |
 
 ## Tools
@@ -106,7 +102,9 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 
 **Local with API key:** The `CLIPFORM_API_KEY` is sent as a standard `Authorization: Bearer` header. Forms are created directly in the key's workspace with your plan tier limits.
 
-**Local anonymous (no key):** Forms go into a shared unclaimed workspace. No auth is needed to edit them - the form UUID is the only credential. You'll get a claim URL to transfer ownership. Free-tier 3-node limit applies.
+**Remote anonymous (no sign-in):** Connecting to `https://mcp.clipform.io` without signing in builds into a temporary account of the session's own. Forms stay drafts with a private preview link - nothing goes live - and while unclaimed, the form UUID is the credential to edit it. Build results include a one-time claim URL that signs you into that account (on the first form, periodically after, and at the form limit); free-plan limits apply. The local stdio server always needs `CLIPFORM_API_KEY`.
+
+These tools need a signed-in Clipform account (OAuth, or an API key): `clipform_list_forms`, `clipform_whoami`, `clipform_get_results`, `clipform_get_responses`, `clipform_delete_form`. An anonymous remote session that calls one is asked to sign in instead. Everything else, including `clipform_get_guide`, `clipform_get_workflow` and `clipform_list_assets`, works without an account.
 
 Forms are created with a start node and end screen automatically - you just add the nodes in between.
 
