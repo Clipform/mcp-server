@@ -75,7 +75,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_complete_media_upload` | Confirm a signed-PUT still image upload finished, after PUTting the bytes to the upload_url returned by clipform_upload_media_asset. |
 | `clipform_attach_node_media` | Attach an existing workspace media asset (from clipform_upload_media_asset) to one or more nodes (max 10). |
 | `clipform_get_node_media` | Get the media attached to a node, including processing status. |
-| `clipform_delete_node_media` | Remove media from a node. |
+| `clipform_delete_node_media` | Remove media from a node by unlinking it; the media asset and its files stay in the workspace library and keep working on any other node or live form that uses them. |
 | `clipform_set_logic` | Set the next node for one or more nodes, wiring a linear route (A to B to C). |
 | `clipform_log_generation` | Internal audit step run by a form-generation workflow. |
 | `clipform_search_news` | Search recent news articles from NewsAPI and The Guardian and return them as structured results. |
