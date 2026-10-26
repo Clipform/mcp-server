@@ -29,13 +29,14 @@ jobs:
             exit 0
           fi
           # The registry validates the npm package at this version, so wait for it.
+          # npm can take more than 5 min to list a new version (4.0.0, #4760); npm view already bypasses its local cache, so only waiting longer helps.
           for i in $(seq 1 30); do
             if npm view "@clipform/mcp-server@${VERSION}" version >/dev/null 2>&1; then
               FOUND=1
               break
             fi
             echo "waiting for npm @clipform/mcp-server@${VERSION} (${i}/30)"
-            sleep 10
+            sleep 30
           done
           if [ -z "${FOUND:-}" ]; then
             echo "npm never listed ${VERSION}" >&2
