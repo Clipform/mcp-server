@@ -79,13 +79,13 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_set_logic` | Set the next node for one or more nodes, wiring a linear route (A to B to C). |
 | `clipform_log_generation` | Internal audit step run by a form-generation workflow. |
 | `clipform_search_news` | Search recent news articles from NewsAPI and The Guardian and return them as structured results. |
-| `clipform_generate_tts` | Generate narration audio from text with word-level captions. |
+| `clipform_generate_tts` | Generate narration audio from text with word-level captions for one question in a Clipform form (max 400 characters). |
 | `clipform_search_media` | Search images or stock video clips. |
-| `clipform_render_composition` | Render a specialised video composition to MP4 or PNG - custom animated visuals that a video template can't provide, such as geography animations or designed motion graphics. |
+| `clipform_render_composition` | Render a specialised video composition to MP4 or PNG for one question in a Clipform form (max 30s, attached to that question) - custom animated visuals that a video template can't provide, such as geography animations or designed motion graphics. |
 | `clipform_search_music` | Search for royalty-free music tracks and ambient sounds. |
 | `clipform_list_compositions` | Browse available video compositions and their expected props schemas. |
 | `clipform_list_video_templates` | Browse available video templates - curated Scene arrangements (bed + overlay + sane defaults) that render through the Scene composition from a small controls object. |
-| `clipform_render_video_template` | Render a curated video template (a pre-arranged Scene: bed + overlay + sane defaults) to MP4 or PNG from a small controls object, instead of hand-assembling Scene layers. |
+| `clipform_render_video_template` | Render a curated video template (a pre-arranged Scene: bed + overlay + sane defaults) to MP4 or PNG for one question in a Clipform form (max 30s, attached to that question) from a small controls object, instead of hand-assembling Scene layers. |
 | `clipform_list_assets` | List available creative assets (sound effects, animations, fonts) for video compositions. |
 | `clipform_check_render` | Check the status of render jobs started by clipform_render_video_template or clipform_render_composition. |
 | `clipform_fetch_boundary` | Fetch a GeoJSON boundary polygon for a country, city, or region. |
