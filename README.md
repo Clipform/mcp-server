@@ -76,7 +76,7 @@ Your MCP client lists these automatically on connect (via `tools/list`). Full re
 | `clipform_attach_node_media` | Attach an existing workspace media asset (from clipform_upload_media_asset) to one or more nodes (max 10). |
 | `clipform_get_node_media` | Get the media attached to a node, including processing status. |
 | `clipform_delete_node_media` | Remove media from a node by unlinking it; the media asset and its files stay in the workspace library and keep working on any other node or live form that uses them. |
-| `clipform_set_logic` | Set the next node for one or more nodes, wiring a linear route (A to B to C). |
+| `clipform_set_logic` | Set where one or more nodes go next. |
 | `clipform_log_generation` | Internal audit step run by a form-generation workflow. |
 | `clipform_search_news` | Search recent news articles from NewsAPI and The Guardian and return them as structured results. |
 | `clipform_generate_tts` | Generate narration audio from text with word-level captions for one question in a Clipform form (max 400 characters). |
