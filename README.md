@@ -44,7 +44,7 @@ claude mcp add clipform -e CLIPFORM_API_KEY=cf_xxx -- npx -y @clipform/mcp-serve
 }
 ```
 
-Generate an API key in your Clipform dashboard under **Developers > API keys**. The local server always needs one - to try Clipform without an account, connect to `https://mcp.clipform.io` instead (see "How it works").
+Generate an API key in your Clipform dashboard under **Settings > Workspace > API keys**. The local server always needs one - to try Clipform without an account, connect to `https://mcp.clipform.io` instead (see "How it works").
 
 ### Environment variables
 
